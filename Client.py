@@ -12,6 +12,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     # so it may be enough to even further simplify this file by simply using connect
     # and having that connection cause the subprocess to run,
     # as mentioned in the comments of the server file
+
     s.sendall(tester)
     receiver = s.recv(4096)
 print('echo', repr(receiver))

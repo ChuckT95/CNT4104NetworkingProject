@@ -1,5 +1,5 @@
 import socket
-
+import subprocess
 # Step One: declare a socket. AF_INET and SOCK_STREAM are standard arguments here
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
 
@@ -25,14 +25,14 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         print('Connected by', address)
         # Here, before the infinite loop, would be the place to run the script/subprocess of the arm
         # this can be done simply by importing "subprocess" and adding the line
-        # subprocess.call("./SaltShaker")
+        #subprocess.call("./a.out")
 
         while True:
             # this is just some basic example code for an echo server like we saw in class.
             # 1024 is the number of bytes that can be received. this is the highest
             # value within the recommended limit of the documentation
             data = connection.recv(4096)
-
+            ###take commands
             # if there is some crazy problem with the input, it will break the loop
             if not data:
                 break
