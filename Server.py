@@ -6,7 +6,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     # Step Two: bind the socket to the correct IP_Address and port number.
     # when the Pi is set up, these arguments, seen in bind(), will need to be changed
     # Current values are common for echo servers, seen in class
-    s.bind(('localhost', 56821))
+    s.bind(('127.0.0.1', 56821))
 
     # Step 3, begin listening for a connection from the client
     # the argument of 0 signifies the "backlog" of connections which can exist.
