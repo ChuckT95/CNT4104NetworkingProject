@@ -13,6 +13,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     # 0 means that if the server is already connected to the client, it will not connect with
     # a second instance of the client. This way, if the arm is already moving it will not
     # continue looping through the arm's code because someone pressed the button 5 times
+    print("listening")
     s.listen(0)
 
     # when listen activates, the accept method is called, and the return value is
@@ -37,4 +38,5 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             # if there is some crazy problem with the input, it will break the loop
             if not data:
                 break
+            print("recevied " + str(data))
             connection.sendall(data)

@@ -1,7 +1,7 @@
 import socket
 # the client server is much easier to go through
 # tester is just to run this as an echo server in order to
-tester = bytes(input("please enter a short message"))
+byteStr = bytes(input("please enter a short message\n"), "utf-8")
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     # here, the client connects to the server application, at the values in that application
     # the server should be running already.
@@ -13,6 +13,6 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     # and having that connection cause the subprocess to run,
     # as mentioned in the comments of the server file
 
-    s.sendall(tester)
-    receiver = s.recv(4096)
-print('echo', repr(receiver))
+    s.sendall(byteStr)
+    receiver = s.recv(4096).decode("utf-8")
+print('echo', repr(str(receiver)))
